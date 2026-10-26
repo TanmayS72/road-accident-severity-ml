@@ -2,7 +2,7 @@
 Visualizations, styling, and Plotly interactive chart components.
 """
 
-from typing import Dict, List, Optional, Any
+from typing import Dict, List, Optional, Any, Tuple
 import numpy as np
 import pandas as pd
 import plotly.express as px
@@ -685,8 +685,13 @@ def plot_feature_importance(importances: pd.Series, top_n: int = 12) -> go.Figur
 
 def plot_probability_breakdown(probs: np.ndarray, class_names: List[str]) -> go.Figure:
     """Horizontal bar chart of predicted probabilities for each severity tier."""
-    colors = [COLOR_ROSE, COLOR_AMBER, COLOR_CYAN]
-    pcts = [p * 100 for p in probs]
+    color_map = {
+        "Fatal injury": COLOR_ROSE,
+        "Serious Injury": COLOR_AMBER,
+        "Slight Injury": COLOR_CYAN,
+    }
+    colors = [color_map.get(c, COLOR_CYAN) for c in class_names]
+    pcts = [float(p) * 100 for p in probs]
 
     fig = go.Figure(
         go.Bar(

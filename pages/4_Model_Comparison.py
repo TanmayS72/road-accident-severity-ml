@@ -233,6 +233,77 @@ else:
         unsafe_allow_html=True,
     )
 
+# Algorithm Educational Reference (Syllabus Guide)
+st.markdown(
+    """
+    <div class="section-header">
+        <h4 class="section-title">Standard Syllabus Algorithms Overview</h4>
+        <span class="section-badge">Academic Reference</span>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
+
+algo_c1, algo_c2 = st.columns(2)
+
+with algo_c1:
+    st.markdown(
+        """
+        <div class="rta-card" style="padding: 16px 18px; margin-bottom: 12px;">
+            <div style="color: #06b6d4; font-size: 0.82rem; font-weight: 700; text-transform: uppercase;">1. K-Nearest Neighbors (KNN)</div>
+            <div style="color: #ffffff; font-size: 1.05rem; font-weight: 700; margin: 4px 0;">Instance-Based Lazy Learner</div>
+            <p style="color: #cbd5e1; font-size: 0.83rem; line-height: 1.5; margin: 0;">
+                <b>Core Principle:</b> Classifies an unknown collision by computing Euclidean distances across scaled numerical attributes and one-hot encoded vectors, taking a distance-weighted vote among the <i>k=7</i> nearest neighbors.<br>
+                <b>Viva Insight:</b> KNN achieves high raw accuracy (84.70%) because it memorizes the 84.57% majority class. However, without native cost-sensitive class weighting, it achieved <b>0.00% recall on fatal collisions</b>.
+            </p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    st.markdown(
+        """
+        <div class="rta-card" style="padding: 16px 18px; margin-bottom: 12px;">
+            <div style="color: #38bdf8; font-size: 0.82rem; font-weight: 700; text-transform: uppercase;">2. Logistic Regression</div>
+            <div style="color: #ffffff; font-size: 1.05rem; font-weight: 700; margin: 4px 0;">Linear Probabilistic Classifier</div>
+            <p style="color: #cbd5e1; font-size: 0.83rem; line-height: 1.5; margin: 0;">
+                <b>Core Principle:</b> Learns a linear log-odds decision boundary using the multinomial softmax function. Features are standardized, and inverse class weights (<code>class_weight='balanced'</code>) penalize errors on rare classes.<br>
+                <b>Viva Insight:</b> While raw accuracy is lower (48.86%), its balanced accuracy (40.66%) demonstrates active sensitivity to serious and fatal collisions rather than default majority prediction.
+            </p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+with algo_c2:
+    st.markdown(
+        """
+        <div class="rta-card" style="padding: 16px 18px; margin-bottom: 12px;">
+            <div style="color: #14b8a6; font-size: 0.82rem; font-weight: 700; text-transform: uppercase;">3. Decision Tree</div>
+            <div style="color: #ffffff; font-size: 1.05rem; font-weight: 700; margin: 4px 0;">Non-Parametric Rule-Based Model</div>
+            <p style="color: #cbd5e1; font-size: 0.83rem; line-height: 1.5; margin: 0;">
+                <b>Core Principle:</b> Recursively splits the feature space on feature thresholds that maximize Gini impurity reduction. Constrained to <code>max_depth=10</code> with balanced class weights to control tree variance.<br>
+                <b>Viva Insight:</b> Achieves the highest balanced accuracy (51.40%) by aggressively prioritizing minority branches, producing highly interpretable hierarchical rules.
+            </p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    st.markdown(
+        """
+        <div class="rta-card" style="padding: 16px 18px; margin-bottom: 12px;">
+            <div style="color: #f59e0b; font-size: 0.82rem; font-weight: 700; text-transform: uppercase;">4. Random Forest (Selected Best Model)</div>
+            <div style="color: #ffffff; font-size: 1.05rem; font-weight: 700; margin: 4px 0;">Bootstrap Aggregation (Bagging) Ensemble</div>
+            <p style="color: #cbd5e1; font-size: 0.83rem; line-height: 1.5; margin: 0;">
+                <b>Core Principle:</b> Ensembles 100 de-correlated decision trees trained on bootstrap samples with random feature subsets. Combines individual tree probability estimates through soft voting.<br>
+                <b>Viva Insight:</b> Selected as the optimal model because it achieves the peak <b>Macro F1-Score (0.4704)</b> and 78.25% accuracy, balancing minority trauma detection with low false positive rates.
+            </p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
 # Retraining & Parameter Tuning Hub
 with st.expander("⚙️ Pipeline Retraining & Experimentation Controls"):
     st.markdown(
