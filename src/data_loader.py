@@ -175,12 +175,16 @@ def validate_datasets() -> Dict[str, Any]:
 def get_dataset_summary() -> Dict[str, Any]:
     """Return high-level summary KPIs for the UI."""
     rta_df = load_rta_data()
+    clean_df = load_cleaned_data()
     total_records = len(rta_df)
     counts = rta_df["Accident_severity"].value_counts().to_dict()
 
     return {
         "total_records": total_records,
         "rta_shape": rta_df.shape,
+        "clean_shape": clean_df.shape,
+        "rta_columns": list(rta_df.columns),
+        "clean_columns": [c for c in clean_df.columns if c != "Severity_label"],
         "fatal_count": counts.get("Fatal injury", 0),
         "serious_count": counts.get("Serious Injury", 0),
         "slight_count": counts.get("Slight Injury", 0),

@@ -149,9 +149,12 @@ with col4:
     )
 
 with col5:
+    clean_cols_count = len(summary.get("clean_columns", []))
+    rta_cols_count = len(summary.get("rta_columns", []))
+    dim_str = f"{clean_cols_count} / {rta_cols_count}" if clean_cols_count > 0 else "14 / 32"
     render_kpi_card(
         title="Feature Space",
-        value=f"{len(summary['clean_columns'])} / {len(summary['rta_columns'])}",
+        value=dim_str,
         subtitle="Cleaned vs Raw Dimensions",
         accent_color="#38bdf8",
     )
@@ -228,7 +231,7 @@ with nav_col4:
             <div style="font-size: 1.5rem; margin-bottom: 8px;">⚖️</div>
             <h4 style="color: #ffffff; margin: 0 0 6px 0; font-size: 1.1rem;">4. Model Benchmarking</h4>
             <p style="color: #94a3b8; font-size: 0.85rem; line-height: 1.4; margin-bottom: 14px;">
-                Comparative evaluation across Random Forest, XGBoost, Balanced Logistic Regression, and Decision Trees with ROC & Confusion Matrices.
+                Comparative evaluation across Random Forest, Decision Tree, K-Nearest Neighbors, and Logistic Regression with Confusion Matrices.
             </p>
         </div>
         """,
