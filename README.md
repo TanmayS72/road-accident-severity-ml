@@ -6,7 +6,11 @@
 [![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-1.3+-F7931E.svg)](https://scikit-learn.org/)
 [![Plotly](https://img.shields.io/badge/Plotly-5.18+-3F4F75.svg)](https://plotly.com/)
 
+[![Report](https://img.shields.io/badge/Academic%20Report-10%20Pages%20%7C%2015%20Marks-10b981.svg)](reports/PROJECT_REPORT.md)
+
 An interactive machine learning analytics application that analyzes historical road traffic collision logs, predicts injury severity using standard syllabus-aligned classifiers, benchmarks model architectures under severe class imbalance, and provides data-driven road safety risk intelligence.
+
+> 📄 **Official Course Submission**: View the complete 10-page academic project report with literature review, performance figures, and viva defense notes: [**`reports/PROJECT_REPORT.md`**](reports/PROJECT_REPORT.md).
 
 ---
 
@@ -173,6 +177,11 @@ ML-Project/
 │   ├── train_models.py              # Stratified training & model persistence
 │   ├── evaluation.py                # Multi-class scoring, confusion matrices & classification reports
 │   └── visualizations.py            # Responsive Plotly charts & styled metric cards
+├── reports/
+│   ├── figures/                     # 6 publication-grade high-res evaluation plots
+│   └── PROJECT_REPORT.md            # Comprehensive 10-page academic lab report (15 marks)
+├── scripts/
+│   └── generate_report_figures.py   # Script to reproduce publication figures
 ├── app.py                           # Executive portal & pipeline overview
 ├── requirements.txt                 # Minimum verified dependencies
 ├── .gitignore                       # Git exclusions for Python caches & logs
